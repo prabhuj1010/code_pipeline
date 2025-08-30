@@ -21,7 +21,7 @@ jobs:
           # simulate build command
           echo "Build successful."
 
-  notify-deploy:
+  deploy:
     needs: build
     runs-on: ubuntu-latest
     if: ${{ success() }}
@@ -33,3 +33,6 @@ jobs:
           repository: ${{ github.repository }}
           workflow: deploy.yml
           ref: ${{ github.ref }}
+          
+    name: Debug info
+    run: echo "Deploy trigger running because build succeeded."
