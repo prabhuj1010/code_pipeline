@@ -2,9 +2,9 @@ name: Node.js CI Inital Workflow Project
 
 on:
   push:
-    branches: [ main ]
+    branches: [ feature/demo ]
   pull_request:
-    branches: [ main ]
+    branches: [ feature/demo ]
 
 jobs:
   build:
