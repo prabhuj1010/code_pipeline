@@ -1,0 +1,35 @@
+name: Build Workflow
+
+on:
+  push:
+    branches:
+      - feature/demo
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Build Command
+        run: |
+          echo "Building the project..."
+          # simulate build command
+          echo "Build successful."
+
+  notify-deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ success() }}
+    steps:
+      - name: Trigger Deploy Workflow
+        uses: peter-evans/workflow-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          workflow: deploy.yml
+          ref: ${{ github.ref }}
