@@ -33,6 +33,6 @@ jobs:
           repository: ${{ github.repository }}
           workflow: deploy.yml
           ref: ${{ github.ref }}
-          
-    name: Debug info
-    run: echo "Deploy trigger running because build succeeded."
+
+      - name: Debug info
+        run: echo "Deploy trigger running because build succeeded."
