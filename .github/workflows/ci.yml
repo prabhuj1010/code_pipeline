@@ -1,4 +1,4 @@
-name: Node.js CI Inital Workflow Project
+name: Hellow world github Workflow Project
 
 on:
   push:
@@ -8,17 +8,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm test
+  name: Hello world
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - name: Write a multi-line message
+run: |
+    echo This demo file shows a 
+    echo very basic and easy-to-understand workflow.
